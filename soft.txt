@@ -1,0 +1,21 @@
+
+goldenDict 
+
+tilda
+
+gnuplot
+
+i3wm
+~/.config/i3/config
+new_window none
+new_float normal
+hide_edge_borders both
+focus_follows_mouse no
+
+sdir
+
+git make cmake
+
+wireshark tcpdump
+
+ycm
