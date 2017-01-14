@@ -1,21 +1,132 @@
 
-goldenDict 
+###goldenDict 
+http://blog.csdn.net/xiaopohaibebo/article/details/45073347
 
-tilda
+###tilda
+startup
 
-gnuplot
+###gnuplot
 
-i3wm
+###i3wm
 ~/.config/i3/config
 new_window none
 new_float normal
 hide_edge_borders both
 focus_follows_mouse no
 
-sdir
+###sdir
+#!/bin/sh
 
-git make cmake
+if [ $# -eq 0 ]
+then
+	if [ -f "/home/zpb/.sdir" ]
+	then
+		cd `cat "/home/zpb/.sdir"`
+	fi
+elif [ $# -eq 1 ]
+then
+	echo `realpath $1` > "/home/zpb/.sdir"
+else
+	echo "param too much"
+fi
 
-wireshark tcpdump
 
-ycm
+###git make cmake
+
+###wireshark tcpdump
+
+###ycm
+
+###.bashrc
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[1;31m\]$(__git_ps1)\[\033[0m\]\$ '
+
+###.vimrc
+let g:ycm_error_symbol='>>'
+let g:ycm_warning_symbol='>*'
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" alternatively, pass a path where Vundle should install plugins
+"let path = '~/some/path/here'
+"call vundle#rc(path)
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between here and filetype plugin indent on.
+" scripts on GitHub repos
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-rails.git'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" scripts from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+" scripts not on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+" ...
+
+filetype plugin indent on     " required
+Bundle 'Valloric/YouCompleteMe'
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'   "配置默认的ycm_extra_conf.py
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>   " 按,jd 会跳转到定义
+let g:ycm_confirm_extra_conf=0    "打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_collect_identifiers_from_tag_files = 1 "使用ctags生成的tags文件
+
+" support c++11
+let g:syntastic_cpp_compiler='g++' "change g++
+let g:syntastic_cpp_compiler_options='-std=c++11 -stdlib=libc++'
+
+set hls
+set number
+set showmatch
+colorscheme darkblue
+set autoindent
+set cindent
+set nobackup
+let mapleader=","
+set showcmd
+
+set cursorline
+hi cursorline cterm=NONE ctermbg=darkred ctermfg=white
+hi cursorColumn cterm=NONE ctermbg=darkred ctermfg=white
+
+nnoremap <leader>ge :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+
+nnoremap <leader>y:let g:ycm_auto_trigger=0<CR>
+nnoremap <leader>Y:let g:ycm_auto_trigger=1<CR>
+
+"inoremap { {}<LEFT><ENTER><ESC>O
+
+Bundle 'nathanaelkane/vim-indent-guides'
+
+set background=dark
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_auto_colors=0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+hi IndentGuidesOdd ctermbg=7
+hi IndentGuidesEven ctermbg=1
+let g:indent_guides_guide_size=1
+"hi IndentGuidesOdd ctermbg=white
+"hi IndentGuidesEven ctermbg=lightgrey
+
+
+###.inputrc
+set completion-ignore-case on
+"":history-search-backward
+#"\e[B":history-search-forward
+
+###okular
+F6
