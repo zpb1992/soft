@@ -130,3 +130,7 @@ set completion-ignore-case on
 
 ###okular
 F6
+
+###jsoncpp gtest
+
+
