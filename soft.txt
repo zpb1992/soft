@@ -133,4 +133,5 @@ F6
 
 ###jsoncpp gtest
 
-
+###NetworkManager
+nmcli NetworkManager的CLI工具（Command Line Interface）
